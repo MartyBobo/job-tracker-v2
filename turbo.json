@@ -13,9 +13,20 @@
     "lint": {
       "dependsOn": ["^lint"]
     },
+    "type-check": {
+      "dependsOn": ["^type-check"]
+    },
     "test": {
       "dependsOn": ["^test"],
       "outputs": ["coverage/**"]
+    },
+    "test:unit": {
+      "dependsOn": ["^test:unit"],
+      "outputs": ["coverage/**"]
+    },
+    "test:e2e": {
+      "dependsOn": ["^test:e2e", "build"],
+      "outputs": ["playwright-report/**", "test-results/**"]
     }
   }
 }

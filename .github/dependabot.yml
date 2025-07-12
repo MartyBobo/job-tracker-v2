@@ -1,0 +1,44 @@
+version: 2
+updates:
+  # Enable version updates for npm dependencies
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "sunday"
+    open-pull-requests-limit: 10
+    groups:
+      production-dependencies:
+        dependency-type: "production"
+      development-dependencies:
+        dependency-type: "development"
+        update-types:
+          - "minor"
+          - "patch"
+    assignees:
+      - "MartyBobo"
+    labels:
+      - "dependencies"
+      - "automated"
+
+  # Enable version updates for Docker
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    assignees:
+      - "MartyBobo"
+    labels:
+      - "docker"
+      - "automated"
+
+  # Enable version updates for GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    assignees:
+      - "MartyBobo"
+    labels:
+      - "github-actions"
+      - "automated"

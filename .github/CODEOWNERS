@@ -1,0 +1,26 @@
+# Default code owners for the entire repository
+* @MartyBobo
+
+# Frontend specific files
+/apps/web/ @MartyBobo
+*.tsx @MartyBobo
+*.css @MartyBobo
+
+# Backend specific files
+/apps/api/ @MartyBobo
+*.prisma @MartyBobo
+
+# Documentation
+*.md @MartyBobo
+/docs/ @MartyBobo
+
+# CI/CD and infrastructure
+/.github/ @MartyBobo
+/docker-compose.yml @MartyBobo
+Dockerfile @MartyBobo
+.docker/ @MartyBobo
+
+# Configuration files
+*.json @MartyBobo
+*.yaml @MartyBobo
+*.yml @MartyBobo
