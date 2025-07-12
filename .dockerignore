@@ -1,0 +1,46 @@
+# .NET
+**/bin/
+**/obj/
+**/.vs/
+**/*.user
+**/*.suo
+**/*.cache
+**/logs/
+
+# Node
+**/node_modules/
+**/.next/
+**/dist/
+**/.npm/
+**/.env.local
+**/.env.*.local
+
+# Database
+*.db
+*.db-shm
+*.db-wal
+data/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Documentation
+*.md
+LICENSE
+
+# Test files
+**/test/
+**/tests/
+**/*.test.*
+**/*.spec.*

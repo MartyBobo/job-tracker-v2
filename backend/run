@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ "$1" = "dev" ]; then
+    ./scripts/dev.sh
+else
+    echo "Usage: ./run dev"
+    echo "Or use: dotnet run --project src/JobTracker.API"
+fi

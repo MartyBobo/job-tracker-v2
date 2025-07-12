@@ -1,0 +1,22 @@
+#!/bin/bash
+# Script to help start both backend and frontend
+
+echo "🚀 JobTracker Development Setup"
+echo "==============================="
+echo ""
+echo "To run the full application, you need two terminals:"
+echo ""
+echo "TERMINAL 1 - Backend (.NET API):"
+echo "--------------------------------"
+echo "cd /mnt/c/Code/Job_app_resume_design"
+echo "./run-backend.sh"
+echo ""
+echo "TERMINAL 2 - Frontend (Next.js):"
+echo "--------------------------------"
+echo "cd /mnt/c/Code/Job_app_resume_design/frontend"
+echo "npm run dev"
+echo ""
+echo "The backend will run on: http://localhost:5250"
+echo "The frontend will run on: http://localhost:3000 (or 3001 if 3000 is busy)"
+echo ""
+echo "Press Ctrl+C in each terminal to stop the services."

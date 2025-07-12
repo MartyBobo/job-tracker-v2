@@ -1,0 +1,77 @@
+services:
+  backend:
+    image: mcr.microsoft.com/dotnet/sdk:8.0
+    container_name: jobtracker-backend
+    working_dir: /workspace
+    command: |
+      sh -c "
+        echo 'Setting up workspace...' &&
+        cp -r /source/JobTracker.sln /workspace/ &&
+        cp -r /source/src /workspace/ &&
+        mkdir -p /var/lib/jobtracker &&
+        echo 'Starting .NET application...' &&
+        cd /workspace &&
+        dotnet watch run --project src/JobTracker.API --urls http://+:5250
+      "
+    ports:
+      - "5250:5250"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:5250
+      - ConnectionStrings__DefaultConnection=Data Source=/var/lib/jobtracker/job_tracker.db
+      - DOTNET_USE_POLLING_FILE_WATCHER=true
+    volumes:
+      # Mount source code as read-only for reference
+      - ../backend/src:/source/src:ro
+      - ../backend/JobTracker.sln:/source/JobTracker.sln:ro
+      # Working directory for builds
+      - backend-workspace:/workspace
+      # Separate volume for database
+      - backend-data:/var/lib/jobtracker
+      # Cache directories
+      - backend-nuget:/root/.nuget
+    networks:
+      - jobtracker-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5250/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  frontend:
+    build:
+      context: ../frontend
+      dockerfile: Dockerfile.dev
+    container_name: jobtracker-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - NEXT_PUBLIC_API_URL=http://localhost:5250/api
+      - WATCHPACK_POLLING=true
+    volumes:
+      # Mount source directories for hot reload
+      - ../frontend/app:/app/app
+      - ../frontend/components:/app/components
+      - ../frontend/lib:/app/lib
+      - ../frontend/hooks:/app/hooks
+      - ../frontend/types:/app/types
+      - ../frontend/public:/app/public
+      # Preserve node_modules and build cache in volumes
+      - frontend-modules:/app/node_modules
+      - frontend-cache:/app/.next
+    depends_on:
+      - backend
+    networks:
+      - jobtracker-network
+
+networks:
+  jobtracker-network:
+    driver: bridge
+
+volumes:
+  backend-workspace:
+  backend-data:
+  backend-nuget:
+  frontend-modules:
+  frontend-cache:

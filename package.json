@@ -1,0 +1,22 @@
+{
+  "name": "job-tracker",
+  "version": "2.0.0",
+  "description": "Job Application Tracker - Separated Architecture",
+  "scripts": {
+    "frontend": "cd frontend && npm run dev",
+    "backend": "cd backend && ./run dev",
+    "docker:dev": "cd infrastructure && docker-compose -f docker-compose.yml up",
+    "install:all": "cd frontend && npm install"
+  },
+  "workspaces": [
+    "frontend"
+  ],
+  "keywords": [
+    "job-tracker",
+    "dotnet",
+    "nextjs",
+    "react"
+  ],
+  "author": "",
+  "license": "MIT"
+}

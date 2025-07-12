@@ -1,0 +1,35 @@
+services:
+  backend:
+    build:
+      context: ../backend
+      dockerfile: Dockerfile
+    ports:
+      - "5250:5250"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:5250
+      - ConnectionStrings__DefaultConnection=Data Source=/app/data/job_tracker.db
+    volumes:
+      - ../backend/uploads:/app/uploads
+      - ../backend/data:/app/data
+    networks:
+      - jobtracker-network
+
+  frontend:
+    build:
+      context: ../frontend
+      dockerfile: Dockerfile
+      target: runner
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - NEXT_PUBLIC_API_URL=http://backend:5250/api
+    depends_on:
+      - backend
+    networks:
+      - jobtracker-network
+
+networks:
+  jobtracker-network:
+    driver: bridge
