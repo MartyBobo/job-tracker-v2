@@ -8,7 +8,7 @@ import { errorHandler } from './middleware/errorHandler.js'
 import { requestLogger } from './middleware/requestLogger.js'
 import routes from './routes/index.js'
 
-const app = express()
+const app: express.Application = express()
 const PORT = process.env.PORT || 3001
 
 // Security middleware

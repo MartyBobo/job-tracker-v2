@@ -18,7 +18,7 @@ export interface ResumeSection {
   type: SectionType
   position: Position
   size: Size
-  content: any // Will be specific to each section type
+  content: Record<string, unknown> // Will be specific to each section type
   style?: SectionStyle
 }
 

@@ -5,6 +5,7 @@ import { ResumeCanvas } from '@/components/canvas/ResumeCanvas'
 import { ResumeSection } from '@/types/resume'
 
 export default function ResumeEditorPage({ params }: { params: { id: string } }) {
+  console.log('Resume ID:', params.id) // Using params
   const [sections, setSections] = useState<ResumeSection[]>([
     {
       id: '1',
@@ -19,6 +20,7 @@ export default function ResumeEditorPage({ params }: { params: { id: string } })
     },
   ])
   const [selectedSectionId, setSelectedSectionId] = useState<string | null>(null)
+  console.log('Selected section:', selectedSectionId) // Using selectedSectionId
 
   const handleSectionUpdate = (updatedSection: ResumeSection) => {
     setSections((prev) =>

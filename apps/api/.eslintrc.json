@@ -1,0 +1,11 @@
+{
+  "extends": "../../.eslintrc.base.js",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "settings": {
+    "react": {
+      "version": "999.999.999"
+    }
+  }
+}
