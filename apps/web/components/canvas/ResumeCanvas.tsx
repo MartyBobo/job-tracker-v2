@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useRef, useEffect } from 'react'
+import React, { useRef } from 'react'
 import { Stage, Layer, Rect, Group } from 'react-konva'
 import { ResumeSection } from '@/types/resume'
 

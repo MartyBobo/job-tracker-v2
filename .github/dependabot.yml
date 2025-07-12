@@ -3,13 +3,36 @@ updates:
   # Enable version updates for npm dependencies
   - package-ecosystem: "npm"
     directory: "/"
+    target-branch: "o3advice"
     schedule:
-      interval: "weekly"
-      day: "sunday"
-    open-pull-requests-limit: 10
+      interval: "monthly"
+      day: "monday"
+    open-pull-requests-limit: 5
+    versioning-strategy: increase-if-necessary
+    allow:
+      - dependency-type: "all"
+    ignore:
+      # Ignore major version updates for critical packages
+      - dependency-name: "eslint"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "@typescript-eslint/*"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "vitest"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "tailwindcss"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "@testing-library/*"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "prisma"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "@prisma/client"
+        update-types: ["version-update:semver-major"]
     groups:
       production-dependencies:
         dependency-type: "production"
+        update-types:
+          - "minor"
+          - "patch"
       development-dependencies:
         dependency-type: "development"
         update-types:
@@ -24,8 +47,9 @@ updates:
   # Enable version updates for Docker
   - package-ecosystem: "docker"
     directory: "/"
+    target-branch: "o3advice"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
     assignees:
       - "MartyBobo"
     labels:
@@ -35,8 +59,9 @@ updates:
   # Enable version updates for GitHub Actions
   - package-ecosystem: "github-actions"
     directory: "/"
+    target-branch: "o3advice"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
     assignees:
       - "MartyBobo"
     labels:

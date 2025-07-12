@@ -1,9 +1,7 @@
 import { Router } from 'express'
-import { z } from 'zod'
-import { validateRequest } from '../middleware/validateRequest.js'
 import { authenticate } from '../middleware/authenticate.js'
 
-const router = Router()
+const router: Router = Router()
 
 // Public routes - no authentication required for viewing templates
 router.get('/', async (req, res, next) => {

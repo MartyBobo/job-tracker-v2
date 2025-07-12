@@ -21,6 +21,11 @@ module.exports = {
       version: 'detect'
     }
   },
+  env: {
+    browser: true,
+    es2021: true,
+    node: true,
+  },
   rules: {
     'react/react-in-jsx-scope': 'off',
     'react/prop-types': 'off',

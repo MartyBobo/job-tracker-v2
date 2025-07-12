@@ -3,7 +3,7 @@ import { z } from 'zod'
 import { validateRequest } from '../middleware/validateRequest.js'
 import { authenticate } from '../middleware/authenticate.js'
 
-const router = Router()
+const router: Router = Router()
 
 // All user routes require authentication
 router.use(authenticate)

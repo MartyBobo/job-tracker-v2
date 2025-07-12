@@ -2,17 +2,7 @@ import { Request, Response, NextFunction } from 'express'
 import jwt from 'jsonwebtoken'
 import { AppError } from './errorHandler.js'
 
-// Extend Express Request type to include user
-declare global {
-  namespace Express {
-    interface Request {
-      user?: {
-        id: string
-        email: string
-      }
-    }
-  }
-}
+// Request type is extended in types/express.d.ts
 
 export const authenticate = async (
   req: Request,

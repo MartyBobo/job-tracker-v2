@@ -8,6 +8,7 @@ export default function NewResumePage() {
   const handleCreateResume = (templateId?: string) => {
     // In a real app, this would create a new resume in the backend
     // For now, we'll just navigate to the editor with a temporary ID
+    console.log('Creating resume with template:', templateId)
     const newResumeId = Date.now().toString()
     router.push(`/resumes/${newResumeId}`)
   }

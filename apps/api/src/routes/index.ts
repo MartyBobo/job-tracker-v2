@@ -4,7 +4,7 @@ import resumeRoutes from './resume.routes.js'
 import templateRoutes from './template.routes.js'
 import userRoutes from './user.routes.js'
 
-const router = Router()
+const router: Router = Router()
 
 // API version and info
 router.get('/', (req, res) => {

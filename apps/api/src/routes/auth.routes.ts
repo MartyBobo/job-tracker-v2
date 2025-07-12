@@ -2,7 +2,7 @@ import { Router } from 'express'
 import { z } from 'zod'
 import { validateRequest } from '../middleware/validateRequest.js'
 
-const router = Router()
+const router: Router = Router()
 
 // Validation schemas
 const registerSchema = z.object({
