@@ -1,22 +1,35 @@
 {
-  "name": "job-tracker",
-  "version": "2.0.0",
-  "description": "Job Application Tracker - Separated Architecture",
+  "name": "jobtrackerv2",
+  "version": "0.0.0",
+  "private": true,
+  "packageManager": "pnpm@9.0.0",
   "scripts": {
-    "frontend": "cd frontend && npm run dev",
-    "backend": "cd backend && ./run dev",
-    "docker:dev": "cd infrastructure && docker-compose -f docker-compose.yml up",
-    "install:all": "cd frontend && npm install"
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "test": "turbo test",
+    "lint": "turbo lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md,json}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,md,json}\"",
+    "prepare": "husky install"
   },
-  "workspaces": [
-    "frontend"
-  ],
-  "keywords": [
-    "job-tracker",
-    "dotnet",
-    "nextjs",
-    "react"
-  ],
-  "author": "",
-  "license": "MIT"
+  "devDependencies": {
+    "@commitlint/cli": "^19.0.0",
+    "@commitlint/config-conventional": "^19.0.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react": "^7.34.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "husky": "^9.0.0",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.2.0",
+    "turbo": "^1.13.0",
+    "typescript": "^5.4.0",
+    "vitest": "^1.3.0"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
+  }
 }
