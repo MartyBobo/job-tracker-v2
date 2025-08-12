@@ -18,7 +18,7 @@ jobs:
     name: Bundle Size Check
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       
       - uses: pnpm/action-setup@v3
         with:
@@ -68,7 +68,7 @@ jobs:
     name: Lighthouse CI
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       
       - uses: pnpm/action-setup@v3
         with:
@@ -98,7 +98,7 @@ jobs:
     name: Security Scan
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
